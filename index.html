@@ -195,6 +195,7 @@
         .auth-tabs .nav-link.active {
             color: var(--primary-color) !important;
             font-weight: bold;
+            background-color: white;
         }
 
         /* Responsive adjustments */
@@ -712,69 +713,72 @@
     </footer>
 
     <!-- Auth Modal -->
-    <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="authModalLabel">Sign In</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <ul class="nav nav-tabs auth-tabs mb-4" id="authTabs" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-tab-pane" type="button" role="tab">Sign In</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-tab-pane" type="button" role="tab">Create Account</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="authTabsContent">
-                        <div class="tab-pane fade show active" id="login-tab-pane" role="tabpanel">
-                            <form id="loginForm">
-                                <div class="mb-3">
-                                    <label for="loginEmail" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" id="loginEmail" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="loginPassword" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="loginPassword" required>
-                                </div>
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="rememberMe">
-                                    <label class="form-check-label" for="rememberMe">Remember me</label>
-                                </div>
-                                <div id="loginError" class="alert alert-danger d-none"></div>
-                                <button type="submit" class="btn btn-primary w-100">Sign In</button>
-                            </form>
-                        </div>
-                        <div class="tab-pane fade" id="register-tab-pane" role="tabpanel">
-                            <form id="signupForm">
-                                <div class="mb-3">
-                                    <label for="fullName" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="signupEmail" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" id="signupEmail" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="signupPassword" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="signupPassword" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="confirmPassword" class="form-label">Confirm Password</label>
-                                    <input type="password" class="form-control" id="confirmPassword" required>
-                                </div>
-                                <div id="signupError" class="alert alert-danger d-none"></div>
-                                <div id="signupSuccess" class="alert alert-success d-none"></div>
-                                <button type="submit" class="btn btn-primary w-100">Create Account</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+<div class="modal fade" id="authModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Authentication</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" id="mainAuthTabs" role="tablist">
+          <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#user-tab" type="button">User</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#priest-tab" type="button">Priest</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#admin-tab" type="button">Admin</button></li>
+        </ul>
+
+        <div class="tab-content" id="mainAuthTabsContent">
+          <!-- USER TAB with sub-tabs -->
+          <div class="tab-pane show active" id="user-tab">
+            <ul class="nav nav-pills mb-3 auth-tabs" id="userSubTabs" role="tablist">
+              <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#user-login" type="button">Login</button></li>
+              <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#user-register" type="button">Register</button></li>
+            </ul>
+            <div class="tab-content">
+              <!-- User Login -->
+              <div class="tab-pane show active" id="user-login">
+                <form id="userLoginForm">
+                  <div class="mb-3"><label>Email</label><input type="email" class="form-control" id="userEmail" required></div>
+                  <div class="mb-3"><label>Password</label><input type="password" class="form-control" id="userPassword" required></div>
+                  <button type="submit" class="btn btn-primary w-100">Login as User</button>
+                </form>
+              </div>
+              <!-- User Register -->
+              <div class="tab-pane" id="user-register">
+                <form id="userRegisterForm">
+                  <div class="mb-3"><label>Name</label><input type="text" class="form-control" id="registerName" required></div>
+                  <div class="mb-3"><label>Email</label><input type="email" class="form-control" id="registerEmail" required></div>
+                  <div class="mb-3"><label>Password</label><input type="password" class="form-control" id="registerPassword" required></div>
+                  <div class="mb-3"><label>Confirm Password</label><input type="password" class="form-control" id="registerConfirmPassword" required></div>
+                  <button type="submit" class="btn btn-success w-100">Register</button>
+                </form>
+              </div>
             </div>
+          </div>
+
+          <!-- PRIEST TAB -->
+          <div class="tab-pane" id="priest-tab">
+            <form id="priestLoginForm">
+              <div class="mb-3"><label>Email</label><input type="email" class="form-control" id="priestEmail" required></div>
+              <div class="mb-3"><label>Password</label><input type="password" class="form-control" id="priestPassword" required></div>
+              <button type="submit" class="btn btn-primary w-100">Login as Priest</button>
+            </form>
+          </div>
+
+          <!-- ADMIN TAB -->
+          <div class="tab-pane" id="admin-tab">
+            <form id="adminLoginForm">
+              <div class="mb-3"><label>Email</label><input type="email" class="form-control" id="adminEmail" required></div>
+              <div class="mb-3"><label>Password</label><input type="password" class="form-control" id="adminPassword" required></div>
+              <button type="submit" class="btn btn-danger w-100">Login as Admin</button>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+</div>
+
 
     <!-- Profile Modal -->
     <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
@@ -1130,7 +1134,78 @@
 
         // Call updateNavbar on load and after login/logout
         updateNavbar();
-        window.updateNavbar = updateNavbar;
+        
+
+    // User Registration (frontend mock)
+    document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('registerName').value;
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+        const confirmPassword = document.getElementById('registerConfirmPassword').value;
+        if(password !== confirmPassword) { alert('Passwords do not match'); return; }
+        // Simulate API response
+        const userData = { name: name, email: email };
+        localStorage.setItem('role', 'customer');
+        localStorage.setItem('userData', JSON.stringify(userData));
+        updateNavbar();
+        bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+        alert('Registration successful!');
+    });
+    // Multi-role login handling
+    ['user','priest','admin'].forEach(role => {
+        document.getElementById(role + 'LoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById(role + 'Email').value;
+            localStorage.setItem('role', role === 'user' ? 'customer' : role);
+            localStorage.setItem('userData', JSON.stringify({ name: role.charAt(0).toUpperCase() + role.slice(1), email: email }));
+            updateNavbar();
+            
+    // User Registration (frontend mock)
+    document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('registerName').value;
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+        const confirmPassword = document.getElementById('registerConfirmPassword').value;
+        if(password !== confirmPassword) { alert('Passwords do not match'); return; }
+        // Simulate API response
+        const userData = { name: name, email: email };
+        localStorage.setItem('role', 'customer');
+        localStorage.setItem('userData', JSON.stringify(userData));
+        updateNavbar();
+        bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+        alert('Registration successful!');
+    });
+    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+        });
+    });
+
+    // Logout handler
+    document.addEventListener('click', function(e){
+        if(e.target && e.target.id === 'logoutBtn'){
+            localStorage.clear();
+            updateNavbar();
+        
+    // User Registration (frontend mock)
+    document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('registerName').value;
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+        const confirmPassword = document.getElementById('registerConfirmPassword').value;
+        if(password !== confirmPassword) { alert('Passwords do not match'); return; }
+        // Simulate API response
+        const userData = { name: name, email: email };
+        localStorage.setItem('role', 'customer');
+        localStorage.setItem('userData', JSON.stringify(userData));
+        updateNavbar();
+        bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+        alert('Registration successful!');
+    });
+    }
+    });
+    window.updateNavbar = updateNavbar;
 
         // Logout handler
         document.addEventListener('click', function(e) {
@@ -1138,12 +1213,154 @@
                 localStorage.removeItem('role');
                 localStorage.removeItem('userData');
                 updateNavbar();
-                window.location.href = 'index.html';
+                
+
+// User Registration (frontend mock)
+document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('registerName').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    const confirmPassword = document.getElementById('registerConfirmPassword').value;
+    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
+    // Simulate API response
+    const userData = { name: name, email: email };
+    localStorage.setItem('role', 'customer');
+    localStorage.setItem('userData', JSON.stringify(userData));
+    updateNavbar();
+    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+    alert('Registration successful!');
+});
+// Multi-role login handling
+['user','priest','admin'].forEach(role => {
+    document.getElementById(role + 'LoginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById(role + 'Email').value;
+        localStorage.setItem('role', role === 'user' ? 'customer' : role);
+        localStorage.setItem('userData', JSON.stringify({ name: role.charAt(0).toUpperCase() + role.slice(1), email: email }));
+        updateNavbar();
+        
+// User Registration (frontend mock)
+document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('registerName').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    const confirmPassword = document.getElementById('registerConfirmPassword').value;
+    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
+    // Simulate API response
+    const userData = { name: name, email: email };
+    localStorage.setItem('role', 'customer');
+    localStorage.setItem('userData', JSON.stringify(userData));
+    updateNavbar();
+    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+    alert('Registration successful!');
+});
+bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+    });
+});
+
+// Logout handler
+document.addEventListener('click', function(e){
+    if(e.target && e.target.id === 'logoutBtn'){
+        localStorage.clear();
+        updateNavbar();
+    
+// User Registration (frontend mock)
+document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('registerName').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    const confirmPassword = document.getElementById('registerConfirmPassword').value;
+    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
+    // Simulate API response
+    const userData = { name: name, email: email };
+    localStorage.setItem('role', 'customer');
+    localStorage.setItem('userData', JSON.stringify(userData));
+    updateNavbar();
+    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+    alert('Registration successful!');
+});
+}
+});
+window.location.href = 'index.html';
             }
         });
 
         // After successful login/signup, call updateNavbar();
-        // (Make sure your login/signup logic calls updateNavbar after setting localStorage)
+        
+
+// User Registration (frontend mock)
+document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('registerName').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    const confirmPassword = document.getElementById('registerConfirmPassword').value;
+    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
+    // Simulate API response
+    const userData = { name: name, email: email };
+    localStorage.setItem('role', 'customer');
+    localStorage.setItem('userData', JSON.stringify(userData));
+    updateNavbar();
+    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+    alert('Registration successful!');
+});
+// Multi-role login handling
+['user','priest','admin'].forEach(role => {
+    document.getElementById(role + 'LoginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById(role + 'Email').value;
+        localStorage.setItem('role', role === 'user' ? 'customer' : role);
+        localStorage.setItem('userData', JSON.stringify({ name: role.charAt(0).toUpperCase() + role.slice(1), email: email }));
+        updateNavbar();
+        
+// User Registration (frontend mock)
+document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('registerName').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    const confirmPassword = document.getElementById('registerConfirmPassword').value;
+    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
+    // Simulate API response
+    const userData = { name: name, email: email };
+    localStorage.setItem('role', 'customer');
+    localStorage.setItem('userData', JSON.stringify(userData));
+    updateNavbar();
+    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+    alert('Registration successful!');
+});
+bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+    });
+});
+
+// Logout handler
+document.addEventListener('click', function(e){
+    if(e.target && e.target.id === 'logoutBtn'){
+        localStorage.clear();
+        updateNavbar();
+    
+// User Registration (frontend mock)
+document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('registerName').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    const confirmPassword = document.getElementById('registerConfirmPassword').value;
+    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
+    // Simulate API response
+    const userData = { name: name, email: email };
+    localStorage.setItem('role', 'customer');
+    localStorage.setItem('userData', JSON.stringify(userData));
+    updateNavbar();
+    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+    alert('Registration successful!');
+});
+}
+});
+// (Make sure your login/signup logic calls updateNavbar after setting localStorage)
 
         // --- Ensure login/signup calls updateNavbar ---
         // Example for login:
@@ -1154,7 +1371,42 @@
             // localStorage.setItem('role', userRole);
             // localStorage.setItem('userData', JSON.stringify(userData));
             updateNavbar();
-            // ...existing code (redirect, close modal, etc)...
+            
+
+// User Registration (frontend mock)
+document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('registerName').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    const confirmPassword = document.getElementById('registerConfirmPassword').value;
+    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
+    // Simulate API response
+    const userData = { name: name, email: email };
+    localStorage.setItem('role', 'customer');
+    localStorage.setItem('userData', JSON.stringify(userData));
+    updateNavbar();
+    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+    alert('Registration successful!');
+});
+// Multi-role login handling
+['user','priest','admin'].forEach(role => {
+    document.getElementById(role + 'LoginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById(role + 'Email').value;
+        localStorage.setItem('role', role === 'user' ? 'customer' : role);
+        localStorage.setItem('userData', JSON.stringify({ name: role.charAt(0).toUpperCase() + role.slice(1), email: email }));
+        updateNavbar();
+
+// Logout handler
+document.addEventListener('click', function(e){
+    if(e.target && e.target.id === 'logoutBtn'){
+        localStorage.clear();
+        updateNavbar();
+    
+}
+});
+// ...existing code (redirect, close modal, etc)...
         });
         // Example for signup:
         document.getElementById('signupForm').addEventListener('submit', function(e) {
@@ -1164,7 +1416,36 @@
             // localStorage.setItem('role', userRole);
             // localStorage.setItem('userData', JSON.stringify(userData));
             updateNavbar();
-            // ...existing code (redirect, close modal, etc)...
+            
+// User Registration (frontend mock)
+document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('registerName').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    const confirmPassword = document.getElementById('registerConfirmPassword').value;
+    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
+    // Simulate API response
+    const userData = { name: name, email: email };
+    localStorage.setItem('role', 'customer');
+    localStorage.setItem('userData', JSON.stringify(userData));
+    updateNavbar();
+    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+    alert('Registration successful!');
+});
+bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
+    });
+});
+
+// Logout handler
+document.addEventListener('click', function(e){
+    if(e.target && e.target.id === 'logoutBtn'){
+        localStorage.clear();
+        updateNavbar();
+
+}
+});
+// ...existing code (redirect, close modal, etc)...
         });
         // Initialize when modal is shown
         document.getElementById('profileModal').addEventListener('show.bs.modal', loadProfileData);
