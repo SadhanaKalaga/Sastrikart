@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priest Dashboard - SastriKart</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff5722;
+            --secondary-color: #ff9800;
+            --light-bg: #f9f7f1;
+            --dark-text: #333;
+            --light-text: #f9f9f9;
+            --header-bg: rgba(255, 87, 34, 0.9);
+            --card-shadow: 0 2px 5px 0 rgba(0,0,0,0.1);
+        }
+        body {
+            background-color: var(--light-bg);
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 250px;
+            background-color: var(--header-bg);
+            color: white;
+            padding-top: 20px;
+        }
+        .sidebar .nav-link { color: var(--light-text); }
+        .sidebar .nav-link.active, .sidebar .nav-link:hover { background-color: var(--primary-color); }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        .admin-section {
+            display: none;
+        }
+        .admin-section.active {
+            display: block;
+        }
+        .stat-card, .table-container, .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: var(--card-shadow);
+            margin-top: 20px;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            border: none;
+            font-weight: 500;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3 class="text-center">Priest Panel</h3>
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link active" href="#" data-target="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-target="bookings"><i class="fas fa-calendar-check"></i> My Bookings</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-target="profile"><i class="fas fa-user"></i> My Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="admin-section active">
+            <h1 class="mt-4">Dashboard</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="stat-card text-center">
+                        <h4>Upcoming Bookings</h4>
+                        <h2 id="upcoming-bookings">0</h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card text-center">
+                        <h4>Completed Bookings</h4>
+                        <h2 id="completed-bookings">0</h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card text-center">
+                        <h4>Total Earnings</h4>
+                        <h2 id="total-earnings">₹0</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bookings Section -->
+        <div id="bookings" class="admin-section">
+            <h1 class="mt-4">My Bookings</h1>
+            <div class="table-container mt-4">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>User</th>
+                            <th>Service</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookings-table-body">
+                        <!-- Booking data will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div id="profile" class="admin-section">
+            <h1 class="mt-4">My Profile</h1>
+            <div class="form-container mt-4">
+                <form>
+                    <div class="mb-3">
+                        <label for="priestName" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="priestName" value="Acharya Sharma">
+                    </div>
+                    <div class="mb-3">
+                        <label for="priestEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="priestEmail" value="acharya.sharma@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="priestPassword" class="form-label">New Password</label>
+                        <input type="password" class="form-control" id="priestPassword">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mockPriestData = {
+                upcomingBookings: 2,
+                completedBookings: 50,
+                totalEarnings: 250000,
+                bookings: [
+                    { id: 'BK-12345', user: 'Ramesh Kumar', service: 'Griha Pravesh', date: '2025-08-03', amount: 8000, status: 'Completed' },
+                    { id: 'BK-12347', user: 'Amit Singh', service: 'Vastu Shanti', date: '2025-08-05', amount: 12000, status: 'Upcoming' },
+                    { id: 'BK-12348', user: 'Priya Sharma', service: 'Namkaran Sanskar', date: '2025-08-06', amount: 3000, status: 'Upcoming' },
+                ]
+            };
+
+            // Navigation
+            const navLinks = document.querySelectorAll('.sidebar .nav-link');
+            const adminSections = document.querySelectorAll('.admin-section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.dataset.target;
+                    if(target) {
+                        navLinks.forEach(navLink => navLink.classList.remove('active'));
+                        this.classList.add('active');
+
+                        adminSections.forEach(section => {
+                            if (section.id === target) {
+                                section.classList.add('active');
+                            } else {
+                                section.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            });
+
+            // Populate Dashboard
+            document.getElementById('upcoming-bookings').textContent = mockPriestData.upcomingBookings;
+            document.getElementById('completed-bookings').textContent = mockPriestData.completedBookings;
+            document.getElementById('total-earnings').textContent = '₹' + mockPriestData.totalEarnings.toLocaleString();
+
+            // Populate Bookings Table
+            const bookingsTableBody = document.getElementById('bookings-table-body');
+            mockPriestData.bookings.forEach(booking => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${booking.id}</td>
+                    <td>${booking.user}</td>
+                    <td>${booking.service}</td>
+                    <td>${booking.date}</td>
+                    <td>₹${booking.amount.toLocaleString()}</td>
+                    <td><span class="badge bg-${booking.status === 'Completed' ? 'success' : 'warning'}">${booking.status}</span></td>
+                `;
+                bookingsTableBody.appendChild(row);
+            });
+
+            // Logout
+            document.getElementById('logout-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.clear();
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>

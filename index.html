@@ -6,234 +6,9 @@
     <title>SastriKart - Hindu Pooja Services</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #ff5722;
-            --secondary-color: #ff9800;
-            --light-bg: #f9f7f1;
-            --dark-text: #333;
-            --light-text: #f9f9f9;
-            --header-bg: rgba(255, 87, 34, 0.9);
-            --card-shadow: 0 2px 5px 0 rgba(0,0,0,0.1);
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--dark-text);
-            padding-top: 80px;
-        }
-
-        /* Header Styles */
-        .header {
-            background-color: var(--header-bg);
-            height: fixed;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .navbar {
-            background-color: var(--header-bg);
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: white !important;
-        }
-
-        .nav-link {
-            color: white !important;
-            font-weight: 500;
-            padding: 8px 15px !important;
-        }
-
-        .nav-link.active, .nav-link:hover {
-            color: #ffeb3b !important;
-        }
-
-        .dropdown-menu {
-            border: none;
-            box-shadow: var(--card-shadow);
-        }
-
-
-        .hero {
-            background: url('images/background.png') no-repeat center center;
-            background-size: cover;           /* Fill the entire section */
-            min-height: 400px;
-            width: 100%;                      /* Use full width of parent */
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            margin-bottom: 20px;
-            padding: 40px 0;
-            left: 0;
-            right: 0;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-color: #ffeb3b;
-            overflow: hidden;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            color: white;
-            max-width: 600px;
-            padding: 20px 40px;
-            background-color: rgba(255, 87, 34, 0.7);
-            border-radius: 12px;
-            text-align: right;
-            margin-right: 5vw;
-        }
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 200px;
-                padding: 20px 0;
-                background-size: contain;
-            }
-            .hero-content {
-                max-width: 100%;
-                margin-right: 0;
-                padding: 15px;
-                text-align: center;
-            }
-        }
-
-
-        /* Product Cards */
-        .service-card {
-            border: none;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-            height: 100%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-body {
-            padding: 15px;
-        }
-
-        .card-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            color: var(--primary-color);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        /* Buttons */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            border: none;
-            padding: 8px 15px;
-            font-weight: 500;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-        }
-
-        /* Section Styles */
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 30px 0;
-            margin-top: 40px;
-        }
-
-        /* Amazon-like features */
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .deals-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 30px;
-            box-shadow: var(--card-shadow);
-        }
-
-        /* Login/Signup Modal */
-        .auth-tabs .nav-link {
-            color: var(--dark-text) !important;
-        }
-
-        .auth-tabs .nav-link.active {
-            color: var(--primary-color) !important;
-            font-weight: bold;
-            background-color: white;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero {
-                height: 300px;
-            }
-            .hero-content {
-                max-width: 100%;
-            }
-        }
-
-        /* Today's Special Section */
-        .today-special {
-            background-color: var(--light-bg);
-            padding: 40px 0;
-        }
-        .today-special .card {
-            height: 100%;
-            border: none;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-        }
-        .today-special .card-header {
-            font-weight: bold;
-        }
-        .today-special .card-body {
-            padding: 20px;
-        }
-        .today-special .list-group-item {
-            border-left: none;
-            border-right: none;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <!-- Header/Navbar -->
     <header class="header">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
@@ -242,31 +17,33 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <form class="d-flex me-3" role="search" id="serviceSearchForm">
-                        <input class="form-control me-2" type="search" placeholder="Search services" aria-label="Search" id="serviceSearchInput">
-                        <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
-                    </form>
+                    <div class="position-relative">
+                        <form class="d-flex me-3" role="search" id="serviceSearchForm">
+                            <input class="form-control me-2" type="search" placeholder="Search services" aria-label="Search" id="serviceSearchInput" autocomplete="off">
+                            <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                        <div id="suggestions-container" class="dropdown-menu position-absolute"></div>
+                    </div>
                     <ul class="navbar-nav me-3">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Categories
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="categoryDropdown" id="categoryDropdownMenu">
-                                <li><a class="dropdown-item category-filter" href="#" data-category="All">All</a></li>
-                                <li><a class="dropdown-item category-filter" href="#" data-category="Griha (Home) Poojas">Griha (Home) Poojas</a></li>
-                                <li><a class="dropdown-item category-filter" href="#" data-category="Festivals & Special Poojas">Festivals & Special Poojas</a></li>
-                                <li><a class="dropdown-item category-filter" href="#" data-category="Sanskar (Life Events) Rituals">Sanskar (Life Events) Rituals</a></li>
-                                <li><a class="dropdown-item category-filter" href="#" data-category="Homas (Fire Rituals)">Homas (Fire Rituals)</a></li>
-                                <li><a class="dropdown-item category-filter" href="#" data-category="Rituals for Ancestors">Rituals for Ancestors</a></li>
-                                <li><a class="dropdown-item category-filter" href="#" data-category="Business & Career-Related Poojas">Business & Career-Related Poojas</a></li>
+                                <li><a class="dropdown-item category-filter" href="index.html#home" data-category="All">All</a></li>
+                                <li><a class="dropdown-item category-filter" href="index.html#griha-poojas" data-category="Griha (Home) Poojas">Griha (Home) Poojas</a></li>
+                                <li><a class="dropdown-item category-filter" href="index.html#festivals-special-poojas" data-category="Festivals & Special Poojas">Festivals & Special Poojas</a></li>
+                                <li><a class="dropdown-item category-filter" href="index.html#sanskar-rituals" data-category="Sanskar (Life Events) Rituals">Sanskar (Life Events) Rituals</a></li>
+                                <li><a class="dropdown-item category-filter" href="index.html#homas" data-category="Homas (Fire Rituals)">Homas (Fire Rituals)</a></li>
+                                <li><a class="dropdown-item category-filter" href="index.html#pitru-karya" data-category="Rituals for Ancestors">Rituals for Ancestors</a></li>
+                                <li><a class="dropdown-item category-filter" href="index.html#career-poojas" data-category="Business & Career-Related Poojas">Business & Career-Related Poojas</a></li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto" id="mainNavbarLinks">
-                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
                         <li class="nav-item"><a class="nav-link" href="book-priest.html">Book a Priest</a></li>
-                        <!-- Dashboard links will be injected here by JS -->
                         <li class="nav-item">
                             <a class="nav-link position-relative" href="#" id="cartBtn" data-bs-toggle="modal" data-bs-target="#cartModal">
                                 <i class="fas fa-shopping-cart"></i>
@@ -282,17 +59,16 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-    <div class="hero-content text-center" style="margin-right:5vw;">
-        <h1>Welcome to SastriKart</h1>
-        <p class="lead">Book priests and get pooja materials easily for all your religious needs.</p>
-        <a href="#griha-poojas" class="btn btn-primary btn-lg">Explore Services</a>
-    </div>
-    </section>
-
-    <!-- Main Content -->
     <main class="container">
+        <!-- Hero Section -->
+        <section id="home" class="hero" style="background-image: url('assets/images/background.png');">
+            <div class="hero-content text-center" style="margin-right:5vw;">
+                <h1>Welcome to SastriKart</h1>
+                <p class="lead">Book priests and get pooja materials easily for all your religious needs.</p>
+                <a href="#griha-poojas" class="btn btn-primary btn-lg">Explore Services</a>
+            </div>
+        </section>
+
         <!-- Today's Special Section -->
         <section class="today-special">
             <div class="container">
@@ -385,13 +161,12 @@
         </section>
 
         <!-- Individual Service Sections -->
-        <!-- Griha (Home) Poojas -->
         <section id="griha-poojas" class="mb-5">
             <h2 class="section-title">Griha (Home) Poojas</h2>
             <p class="mb-4">Bring divine energy and positivity into your home with sacred rituals.</p>
             <div class="service-grid">
                 <div class="card service-card">
-                    <img src="images/Satyanarayana_Pooja_Services.jpg" class="card-img-top" alt="Satyanarayan Pooja">
+                    <img src="assets/images/Satyanarayana_Pooja_Services.jpg" class="card-img-top" alt="Satyanarayan Pooja">
                     <div class="card-body">
                         <h5 class="card-title">Satyanarayan Pooja</h5>
                         <p class="card-text">Performed for prosperity, well-being, and gratitude to Lord Vishnu.</p>
@@ -402,7 +177,7 @@
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Griha_Pravesh_Services.jpg" class="card-img-top" alt="Griha Pravesh">
+                    <img src="assets/images/Griha_Pravesh_Services.jpg" class="card-img-top" alt="Griha Pravesh">
                     <div class="card-body">
                         <h5 class="card-title">Griha Pravesh Pooja</h5>
                         <p class="card-text">Housewarming ceremony to purify the new home and invite blessings.</p>
@@ -413,24 +188,24 @@
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Vastu_shanthi_Pooja_Services.jpg" class="card-img-top" alt="Vastu Shanti Pooja">
+                    <img src="assets/images/Vastu_shanthi_Pooja_Services.jpg" class="card-img-top" alt="Vastu Shanti Pooja">
                     <div class="card-body">
                         <h5 class="card-title">Vastu Shanti Pooja</h5>
                         <p class="card-text">Eliminate Vastu doshas and harmonize your living space.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹5,000 - ₹12,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Navagraha_pooja_Services.jpg" class="card-img-top" alt="Navagraha Pooja">
+                    <img src="assets/images/Navagraha_pooja_Services.jpg" class="card-img-top" alt="Navagraha Pooja">
                     <div class="card-body">
                         <h5 class="card-title">Navagraha Pooja</h5>
                         <p class="card-text">Seek blessings from all nine planets to reduce doshas and improve fortune.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹3,500 - ₹7,500</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -443,46 +218,46 @@
             <p class="mb-4">Celebrate important Hindu festivals with divine rituals.</p>
             <div class="service-grid">
                 <div class="card service-card">
-                    <img src="images/Ganesh_Pooja_Services.jpg" class="card-img-top" alt="Ganesh Pooja">
+                    <img src="assets/images/Ganesh_Pooja_Services.jpg" class="card-img-top" alt="Ganesh Pooja">
                     <div class="card-body">
                         <h5 class="card-title">Ganesh Pooja</h5>
                         <p class="card-text">Start new ventures with blessings from Lord Ganesha, the remover of obstacles.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹2,000 - ₹5,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Durga_Pooja_services.jpg" class="card-img-top" alt="Durga Pooja">
+                    <img src="assets/images/Durga_Pooja_services.jpg" class="card-img-top" alt="Durga Pooja">
                     <div class="card-body">
                         <h5 class="card-title">Durga Pooja</h5>
                         <p class="card-text">Worship Goddess Durga during Navratri for courage and protection from evil.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹4,000 - ₹9,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Shiva_Pooja_Services.jpg" class="card-img-top" alt="Shiv Pooja">
+                    <img src="assets/images/Shiva_Pooja_Services.jpg" class="card-img-top" alt="Shiv Pooja">
                     <div class="card-body">
                         <h5 class="card-title">Shiv Pooja (Rudrabhishek)</h5>
                         <p class="card-text">Perform Rudrabhishek to seek the grace of Lord Shiva for peace and health.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹3,500 - ₹7,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Saraswati_Pooja_Services.jpg" class="card-img-top" alt="Saraswati Pooja">
+                    <img src="assets/images/Saraswati_Pooja_Services.jpg" class="card-img-top" alt="Saraswati Pooja">
                     <div class="card-body">
                         <h5 class="card-title">Saraswati Pooja</h5>
                         <p class="card-text">Invoke Goddess Saraswati's blessings for wisdom, learning, and success.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹2,000 - ₹4,500</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -495,46 +270,46 @@
             <p class="mb-4">Mark life's important milestones with sacred Vedic rituals.</p>
             <div class="service-grid">
                 <div class="card service-card">
-                    <img src="images/Namkaran_Sanskar_Services.jpg" class="card-img-top" alt="Namkaran Sanskar">
+                    <img src="assets/images/Namkaran_Sanskar_Services.jpg" class="card-img-top" alt="Namkaran Sanskar">
                     <div class="card-body">
                         <h5 class="card-title">Namkaran Sanskar</h5>
                         <p class="card-text">Naming ceremony to bless and give identity to the newborn.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹2,500 - ₹5,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Annaprashan_Sanskar_Services.jpg" class="card-img-top" alt="Annaprashan Sanskar">
+                    <img src="assets/images/Annaprashan_Sanskar_Services.jpg" class="card-img-top" alt="Annaprashan Sanskar">
                     <div class="card-body">
                         <h5 class="card-title">Annaprashan Sanskar</h5>
                         <p class="card-text">First feeding ceremony with solid food for a baby's well-being.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹2,000 - ₹4,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Mundan_Sanskar_Services.jpg" class="card-img-top" alt="Mundan Sanskar">
+                    <img src="assets/images/Mundan_Sanskar_Services.jpg" class="card-img-top" alt="Mundan Sanskar">
                     <div class="card-body">
                         <h5 class="card-title">Mundan Sanskar</h5>
                         <p class="card-text">First head-shaving ceremony for the child's purification.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹3,000 - ₹5,500</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Upanayan_Sanskar_Services.jpg" class="card-img-top" alt="Upanayan Sanskar">
+                    <img src="assets/images/Upanayan_Sanskar_Services.jpg" class="card-img-top" alt="Upanayan Sanskar">
                     <div class="card-body">
                         <h5 class="card-title">Upanayan Sanskar (Janeu)</h5>
                         <p class="card-text">Sacred thread ceremony for initiating boys into Vedic learning.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹5,000 - ₹10,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -547,46 +322,46 @@
             <p class="mb-4">Powerful Vedic rituals for cleansing, protection, and divine grace.</p>
             <div class="service-grid">
                 <div class="card service-card">
-                    <img src="images/Ganapathi_Homa_Services.jpg" class="card-img-top" alt="Ganapati Homa">
+                    <img src="assets/images/Ganapathi_Homa_Services.jpg" class="card-img-top" alt="Ganapati Homa">
                     <div class="card-body">
                         <h5 class="card-title">Ganapati Homa</h5>
                         <p class="card-text">Performed to remove obstacles and initiate new ventures smoothly.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹3,500 - ₹6,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Maha_Mrityunjaya_Homa_services.jpg" class="card-img-top" alt="Maha Mrityunjaya Homa">
+                    <img src="assets/images/Maha_Mrityunjaya_Homa_services.jpg" class="card-img-top" alt="Maha Mrityunjaya Homa">
                     <div class="card-body">
                         <h5 class="card-title">Maha Mrityunjaya Homa</h5>
                         <p class="card-text">A powerful ritual for health, healing, and longevity.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹4,500 - ₹8,500</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Sudarsana_Homa_Services.jpg" class="card-img-top" alt="Sudarsana Homa">
+                    <img src="assets/images/Sudarsana_Homa_Services.jpg" class="card-img-top" alt="Sudarsana Homa">
                     <div class="card-body">
                         <h5 class="card-title">Sudarsana Homa</h5>
                         <p class="card-text">Provides protection against negative energies and evil forces.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹3,000 - ₹6,500</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Chandi_Homa_Services.jpg" class="card-img-top" alt="Chandi Homa">
+                    <img src="assets/images/Chandi_Homa_Services.jpg" class="card-img-top" alt="Chandi Homa">
                     <div class="card-body">
                         <h5 class="card-title">Chandi Homa</h5>
                         <p class="card-text">Performed to overcome major life obstacles and enemies.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹7,000 - ₹12,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -599,35 +374,35 @@
             <p class="mb-4">Honor and appease departed souls for peace and blessings.</p>
             <div class="service-grid">
                 <div class="card service-card">
-                    <img src="images/Shraddha_Pooja_Services.jpg" class="card-img-top" alt="Shraddha Pooja">
+                    <img src="assets/images/Shraddha_Pooja_Services.jpg" class="card-img-top" alt="Shraddha Pooja">
                     <div class="card-body">
                         <h5 class="card-title">Shraddha Pooja</h5>
                         <p class="card-text">Annual ritual to offer gratitude and blessings to ancestors.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹2,000 - ₹4,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Pind_Dhan_Services.jpg" class="card-img-top" alt="Pind Daan">
+                    <img src="assets/images/Pind_Dhan_Services.jpg" class="card-img-top" alt="Pind Daan">
                     <div class="card-body">
                         <h5 class="card-title">Pind Daan</h5>
                         <p class="card-text">Offering to ancestors for their peace in the afterlife.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹3,500 - ₹6,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Tarpan_Services.jpg" class="card-img-top" alt="Tarpan">
+                    <img src="assets/images/Tarpan_Services.jpg" class="card-img-top" alt="Tarpan">
                     <div class="card-body">
                         <h5 class="card-title">Tarpan</h5>
                         <p class="card-text">Water offerings made to forefathers to seek blessings.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹1,500 - ₹3,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -640,35 +415,35 @@
             <p class="mb-4">Boost success, prosperity, and remove hurdles in career or business life.</p>
             <div class="service-grid">
                 <div class="card service-card">
-                    <img src="images/Ayudha_Pooja_Services.jpg" class="card-img-top" alt="Ayudha Pooja">
+                    <img src="assets/images/Ayudha_Pooja_Services.jpg" class="card-img-top" alt="Ayudha Pooja">
                     <div class="card-body">
                         <h5 class="card-title">Ayudha Pooja</h5>
                         <p class="card-text">Worship tools and instruments for blessings in work life.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹2,500 - ₹4,500</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Lakshmi_Kubera_Pooja_Services.jpg" class="card-img-top" alt="Lakshmi Kubera Pooja">
+                    <img src="assets/images/Lakshmi_Kubera_Pooja_Services.jpg" class="card-img-top" alt="Lakshmi Kubera Pooja">
                     <div class="card-body">
                         <h5 class="card-title">Lakshmi Kubera Pooja</h5>
                         <p class="card-text">Combine wealth and financial protection through divine grace.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹4,000 - ₹8,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="images/Bhoomi_Pooja_Services.jpg" class="card-img-top" alt="Bhoomi Pooja">
+                    <img src="assets/images/Bhoomi_Pooja_Services.jpg" class="card-img-top" alt="Bhoomi Pooja">
                     <div class="card-body">
                         <h5 class="card-title">Bhoomi Pooja</h5>
                         <p class="card-text">Conducted before construction to seek blessings of Mother Earth.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="price">₹5,000 - ₹9,000</span>
-                            <a href="book-priest.html"   class="btn btn-primary btn-sm">Book Now</a>
+                            <a href="book-priest.html" class="btn btn-primary btn-sm">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -676,7 +451,7 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <div id="modals-placeholder"></div>
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -687,9 +462,9 @@
                 <div class="col-md-4">
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#home" class="text-white">Home</a></li>
-                        <li><a href="#griha-poojas" class="text-white">Services</a></li>
-                        <li><a href="book-priest.html"   class="text-white">Book a Priest</a></li>
+                        <li><a href="index.html#home" class="text-white">Home</a></li>
+                        <li><a href="index.html#griha-poojas" class="text-white">Services</a></li>
+                        <li><a href="book-priest.html" class="text-white">Book a Priest</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -702,7 +477,7 @@
                 </div>
                 <div class="mb-2 text-center">
                     <h2>Incubated by VISHVA TBI</h2>
-                    <img src="images/vishva.png" alt="SastriKart Logo" style="max-width: 120px; height: auto; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); background: #fff; padding: 4px;">
+                    <img src="assets/images/vishva.png" alt="SastriKart Logo" style="max-width: 120px; height: auto; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); background: #fff; padding: 4px;">
                 </div>
             </div>
             <hr class="bg-light">
@@ -712,745 +487,9 @@
         </div>
     </footer>
 
-    <!-- Auth Modal -->
-<div class="modal fade" id="authModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Authentication</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <ul class="nav nav-tabs mb-3" id="mainAuthTabs" role="tablist">
-          <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#user-tab" type="button">User</button></li>
-          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#priest-tab" type="button">Priest</button></li>
-          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#admin-tab" type="button">Admin</button></li>
-        </ul>
+    <div id="modals-placeholder"></div>
 
-        <div class="tab-content" id="mainAuthTabsContent">
-          <!-- USER TAB with sub-tabs -->
-          <div class="tab-pane show active" id="user-tab">
-            <ul class="nav nav-pills mb-3 auth-tabs" id="userSubTabs" role="tablist">
-              <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#user-login" type="button">Login</button></li>
-              <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#user-register" type="button">Register</button></li>
-            </ul>
-            <div class="tab-content">
-              <!-- User Login -->
-              <div class="tab-pane show active" id="user-login">
-                <form id="userLoginForm">
-                  <div class="mb-3"><label>Email</label><input type="email" class="form-control" id="userEmail" required></div>
-                  <div class="mb-3"><label>Password</label><input type="password" class="form-control" id="userPassword" required></div>
-                  <button type="submit" class="btn btn-primary w-100">Login as User</button>
-                </form>
-              </div>
-              <!-- User Register -->
-              <div class="tab-pane" id="user-register">
-                <form id="userRegisterForm">
-                  <div class="mb-3"><label>Name</label><input type="text" class="form-control" id="registerName" required></div>
-                  <div class="mb-3"><label>Email</label><input type="email" class="form-control" id="registerEmail" required></div>
-                  <div class="mb-3"><label>Password</label><input type="password" class="form-control" id="registerPassword" required></div>
-                  <div class="mb-3"><label>Confirm Password</label><input type="password" class="form-control" id="registerConfirmPassword" required></div>
-                  <button type="submit" class="btn btn-success w-100">Register</button>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <!-- PRIEST TAB -->
-          <div class="tab-pane" id="priest-tab">
-            <form id="priestLoginForm">
-              <div class="mb-3"><label>Email</label><input type="email" class="form-control" id="priestEmail" required></div>
-              <div class="mb-3"><label>Password</label><input type="password" class="form-control" id="priestPassword" required></div>
-              <button type="submit" class="btn btn-primary w-100">Login as Priest</button>
-            </form>
-          </div>
-
-          <!-- ADMIN TAB -->
-          <div class="tab-pane" id="admin-tab">
-            <form id="adminLoginForm">
-              <div class="mb-3"><label>Email</label><input type="email" class="form-control" id="adminEmail" required></div>
-              <div class="mb-3"><label>Password</label><input type="password" class="form-control" id="adminPassword" required></div>
-              <button type="submit" class="btn btn-danger w-100">Login as Admin</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-    <!-- Profile Modal -->
-    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="profileModalLabel">My Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="text-center">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" 
-                                    alt="avatar" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
-                                <h5 id="profileName">User Name</h5>
-                                <p class="text-muted" id="profileEmail">user@example.com</p>
-                                <div class="mb-3">
-                                    <button class="btn btn-sm btn-outline-primary" id="changePhotoBtn">
-                                        <i class="fas fa-camera me-1"></i> Change Photo
-                                    </button>
-                                    <input type="file" id="profilePhotoInput" accept="image/*" style="display: none;">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <ul class="nav nav-tabs" id="profileTabs" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab">Profile</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" type="button" role="tab">My Bookings</button>
-                                </li>
-                            </ul>
-                            <div class="tab-content p-3" id="profileTabsContent">
-                                <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel">
-                                    <form id="profileForm">
-                                        <div class="mb-3 row">
-                                            <label class="col-sm-3 col-form-label">Full Name</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="profileFullName" required>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label class="col-sm-3 col-form-label">Email</label>
-                                            <div class="col-sm-9">
-                                                <input type="email" class="form-control" id="profileEmailInput" required>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label class="col-sm-3 col-form-label">Phone</label>
-                                            <div class="col-sm-9">
-                                                <input type="tel" class="form-control" id="profilePhone" required>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label class="col-sm-3 col-form-label">Address</label>
-                                            <div class="col-sm-9">
-                                                <textarea class="form-control" id="profileAddress" rows="3" required></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="alert alert-danger d-none" id="profileError"></div>
-                                        <div class="alert alert-success d-none" id="profileSuccess"></div>
-                                        <div class="text-end">
-                                            <button type="button" class="btn btn-outline-secondary me-2" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" id="saveProfileBtn">
-                                                <span class="spinner-border spinner-border-sm d-none" id="profileSpinner" role="status" aria-hidden="true"></span>
-                                                Save Changes
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="tab-pane fade" id="bookings-tab-pane" role="tabpanel">
-                                    <div class="table-responsive">
-                                        <table class="table table-hover">
-                                            <thead class="thead-light">
-                                                <tr>
-                                                    <th>Booking ID</th>
-                                                    <th>Service</th>
-                                                    <th>Date</th>
-                                                    <th>Status</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="bookingsTable">
-                                                <!-- Example booking row (this would be dynamically generated) -->
-                                                <tr>
-                                                    <td>#BK-12345</td>
-                                                    <td>Wedding Ceremony</td>
-                                                    <td>June 25, 2023</td>
-                                                    <td><span class="badge bg-success">Confirmed</span></td>
-                                                    <td>
-                                                        <a href="booking-details.html?id=BK-12345" class="btn btn-outline-primary btn-sm me-1">View</a>
-                                                        <a href="book-priest.html" class="btn btn-primary btn-sm">Book New</a>
-                                                    </td>
-                                                </tr>
-                                                <!-- Another example row -->
-                                                <tr>
-                                                    <td>#BK-12346</td>
-                                                    <td>Baptism</td>
-                                                    <td>July 2, 2023</td>
-                                                    <td><span class="badge bg-warning text-dark">Pending</span></td>
-                                                    <td>
-                                                        <a href="booking-details.html?id=BK-12346" class="btn btn-outline-primary btn-sm me-1">View</a>
-                                                        <a href="book-priest.html" class="btn btn-primary btn-sm">Book New</a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="text-center py-3" id="noBookings" style="display: none;">
-                                        <p>You don't have any bookings yet.</p>
-                                        <a href="book-priest.html" class="btn btn-primary">Book a Service</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get user data from localStorage or API
-        let userData = JSON.parse(localStorage.getItem('userData')) || {
-            name: "John Doe",
-            email: "john@example.com",
-            phone: "+1234567890",
-            address: "123 Main St, City, Country",
-            photo: "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp",
-            bookings: []
-        };
-
-        // Initialize modal with user data
-        function loadProfileData() {
-            document.getElementById('profileName').textContent = userData.name;
-            document.getElementById('profileEmail').textContent = userData.email;
-            document.getElementById('profileFullName').value = userData.name;
-            document.getElementById('profileEmailInput').value = userData.email;
-            document.getElementById('profilePhone').value = userData.phone;
-            document.getElementById('profileAddress').value = userData.address;
-            
-            // Set profile photo
-            const profileImg = document.querySelector('.text-center img');
-            profileImg.src = userData.photo;
-            
-            // Load bookings if any
-            loadBookings();
-        }
-
-        // Load bookings data
-        function loadBookings() {
-            const bookingsTable = document.getElementById('bookingsTable');
-            const noBookings = document.getElementById('noBookings');
-            
-            if (userData.bookings && userData.bookings.length > 0) {
-                noBookings.style.display = 'none';
-                bookingsTable.innerHTML = '';
-                
-                userData.bookings.forEach(booking => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${booking.id}</td>
-                        <td>${booking.service}</td>
-                        <td>${new Date(booking.date).toLocaleDateString()}</td>
-                        <td><span class="badge ${getStatusBadgeClass(booking.status)}">${booking.status}</span></td>
-                        <td>
-                            <button class="btn btn-sm btn-outline-primary view-booking" data-id="${booking.id}">View</button>
-                            ${booking.status === 'Pending' ? `<button class="btn btn-sm btn-outline-danger cancel-booking ms-1" data-id="${booking.id}">Cancel</button>` : ''}
-                        </td>
-                    `;
-                    bookingsTable.appendChild(row);
-                });
-                
-                // Add event listeners to booking buttons
-                document.querySelectorAll('.view-booking').forEach(btn => {
-                    btn.addEventListener('click', viewBooking);
-                });
-                
-                document.querySelectorAll('.cancel-booking').forEach(btn => {
-                    btn.addEventListener('click', cancelBooking);
-                });
-            } else {
-                noBookings.style.display = 'block';
-                bookingsTable.innerHTML = '';
-            }
-        }
-
-        function getStatusBadgeClass(status) {
-            switch(status) {
-                case 'Completed': return 'bg-success';
-                case 'Pending': return 'bg-warning text-dark';
-                case 'Cancelled': return 'bg-danger';
-                default: return 'bg-secondary';
-            }
-        }
-
-        // Handle profile form submission
-        document.getElementById('profileForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const saveBtn = document.getElementById('saveProfileBtn');
-            const spinner = document.getElementById('profileSpinner');
-            const errorAlert = document.getElementById('profileError');
-            const successAlert = document.getElementById('profileSuccess');
-            
-            // Show loading spinner
-            saveBtn.disabled = true;
-            spinner.classList.remove('d-none');
-            
-            // Simulate API call with timeout
-            setTimeout(() => {
-                // Update user data
-                userData.name = document.getElementById('profileFullName').value;
-                userData.email = document.getElementById('profileEmailInput').value;
-                userData.phone = document.getElementById('profilePhone').value;
-                userData.address = document.getElementById('profileAddress').value;
-                
-                // Update displayed name and email
-                document.getElementById('profileName').textContent = userData.name;
-                document.getElementById('profileEmail').textContent = userData.email;
-                
-                // Save to localStorage (simulating database update)
-                localStorage.setItem('userData', JSON.stringify(userData));
-                
-                // Show success message
-                successAlert.textContent = 'Profile updated successfully!';
-                successAlert.classList.remove('d-none');
-                errorAlert.classList.add('d-none');
-                
-                // Hide spinner and re-enable button
-                spinner.classList.add('d-none');
-                saveBtn.disabled = false;
-                
-                // Hide success message after 3 seconds
-                setTimeout(() => {
-                    successAlert.classList.add('d-none');
-                }, 3000);
-            }, 1000);
-        });
-
-        // Handle photo change
-        document.getElementById('changePhotoBtn').addEventListener('click', function() {
-            document.getElementById('profilePhotoInput').click();
-        });
-
-        document.getElementById('profilePhotoInput').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const profileImg = document.querySelector('.text-center img');
-                    profileImg.src = event.target.result;
-                    
-                    // Update user data
-                    userData.photo = event.target.result;
-                    localStorage.setItem('userData', JSON.stringify(userData));
-                    
-                    // Show success message
-                    const successAlert = document.getElementById('profileSuccess');
-                    successAlert.textContent = 'Profile photo updated successfully!';
-                    successAlert.classList.remove('d-none');
-                    
-                    setTimeout(() => {
-                        successAlert.classList.add('d-none');
-                    }, 3000);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // Booking functions
-        function viewBooking(e) {
-            const bookingId = e.target.getAttribute('data-id');
-            const booking = userData.bookings.find(b => b.id === bookingId);
-            alert(`Booking Details:\nID: ${booking.id}\nService: ${booking.service}\nDate: ${new Date(booking.date).toLocaleDateString()}\nStatus: ${booking.status}`);
-        }
-
-        function cancelBooking(e) {
-            if (confirm('Are you sure you want to cancel this booking?')) {
-                const bookingId = e.target.getAttribute('data-id');
-                const bookingIndex = userData.bookings.findIndex(b => b.id === bookingId);
-                
-                if (bookingIndex !== -1) {
-                    userData.bookings[bookingIndex].status = 'Cancelled';
-                    localStorage.setItem('userData', JSON.stringify(userData));
-                    loadBookings();
-                    
-                    const successAlert = document.getElementById('profileSuccess');
-                    successAlert.textContent = 'Booking cancelled successfully!';
-                    successAlert.classList.remove('d-none');
-                    
-                    setTimeout(() => {
-                        successAlert.classList.add('d-none');
-                    }, 3000);
-                }
-            }
-        }
-
-        // --- Navbar dynamic logic ---
-        function updateNavbar() {
-            const mainLinks = document.getElementById('mainNavbarLinks');
-            const authLinks = document.getElementById('authNavbarLinks');
-            mainLinks.querySelectorAll('.dashboard-link').forEach(el => el.remove());
-            authLinks.innerHTML = '';
-
-            const userRole = localStorage.getItem('role');
-            const userData = JSON.parse(localStorage.getItem('userData'));
-            if (userRole) {
-                // Add dashboard link based on role
-                let dashLink = '';
-                let dashHref = '';
-                if (userRole === 'customer') {
-                    dashLink = 'Customer Dashboard';
-                    dashHref = 'customer.html';
-                } else if (userRole === 'priest') {
-                    dashLink = 'Priest Dashboard';
-                    dashHref = 'priest.html';
-                } else if (userRole === 'admin') {
-                    dashLink = 'Admin Dashboard';
-                    dashHref = 'admin.html';
-                }
-                if (dashLink) {
-                    const li = document.createElement('li');
-                    li.className = 'nav-item dashboard-link';
-                    li.innerHTML = `<a class="nav-link" href="${dashHref}">${dashLink}</a>`;
-                    mainLinks.appendChild(li);
-                }
-                // Show user info and logout
-                authLinks.innerHTML = `
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user-circle"></i> ${userData ? userData.name : 'User'}
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">My Profile</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
-                        </ul>
-                    </li>
-                `;
-            } else {
-                // Not logged in: show login button
-                authLinks.innerHTML = `
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#authModal">Login / Sign Up</a>
-                    </li>
-                `;
-            }
-        }
-
-        // Call updateNavbar on load and after login/logout
-        updateNavbar();
-        
-
-    // User Registration (frontend mock)
-    document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('registerName').value;
-        const email = document.getElementById('registerEmail').value;
-        const password = document.getElementById('registerPassword').value;
-        const confirmPassword = document.getElementById('registerConfirmPassword').value;
-        if(password !== confirmPassword) { alert('Passwords do not match'); return; }
-        // Simulate API response
-        const userData = { name: name, email: email };
-        localStorage.setItem('role', 'customer');
-        localStorage.setItem('userData', JSON.stringify(userData));
-        updateNavbar();
-        bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-        alert('Registration successful!');
-    });
-    // Multi-role login handling
-    ['user','priest','admin'].forEach(role => {
-        document.getElementById(role + 'LoginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById(role + 'Email').value;
-            localStorage.setItem('role', role === 'user' ? 'customer' : role);
-            localStorage.setItem('userData', JSON.stringify({ name: role.charAt(0).toUpperCase() + role.slice(1), email: email }));
-            updateNavbar();
-            
-    // User Registration (frontend mock)
-    document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('registerName').value;
-        const email = document.getElementById('registerEmail').value;
-        const password = document.getElementById('registerPassword').value;
-        const confirmPassword = document.getElementById('registerConfirmPassword').value;
-        if(password !== confirmPassword) { alert('Passwords do not match'); return; }
-        // Simulate API response
-        const userData = { name: name, email: email };
-        localStorage.setItem('role', 'customer');
-        localStorage.setItem('userData', JSON.stringify(userData));
-        updateNavbar();
-        bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-        alert('Registration successful!');
-    });
-    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-        });
-    });
-
-    // Logout handler
-    document.addEventListener('click', function(e){
-        if(e.target && e.target.id === 'logoutBtn'){
-            localStorage.clear();
-            updateNavbar();
-        
-    // User Registration (frontend mock)
-    document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('registerName').value;
-        const email = document.getElementById('registerEmail').value;
-        const password = document.getElementById('registerPassword').value;
-        const confirmPassword = document.getElementById('registerConfirmPassword').value;
-        if(password !== confirmPassword) { alert('Passwords do not match'); return; }
-        // Simulate API response
-        const userData = { name: name, email: email };
-        localStorage.setItem('role', 'customer');
-        localStorage.setItem('userData', JSON.stringify(userData));
-        updateNavbar();
-        bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-        alert('Registration successful!');
-    });
-    }
-    });
-    window.updateNavbar = updateNavbar;
-
-        // Logout handler
-        document.addEventListener('click', function(e) {
-            if (e.target && e.target.id === 'logoutBtn') {
-                localStorage.removeItem('role');
-                localStorage.removeItem('userData');
-                updateNavbar();
-                
-
-// User Registration (frontend mock)
-document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('registerName').value;
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    const confirmPassword = document.getElementById('registerConfirmPassword').value;
-    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
-    // Simulate API response
-    const userData = { name: name, email: email };
-    localStorage.setItem('role', 'customer');
-    localStorage.setItem('userData', JSON.stringify(userData));
-    updateNavbar();
-    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-    alert('Registration successful!');
-});
-// Multi-role login handling
-['user','priest','admin'].forEach(role => {
-    document.getElementById(role + 'LoginForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = document.getElementById(role + 'Email').value;
-        localStorage.setItem('role', role === 'user' ? 'customer' : role);
-        localStorage.setItem('userData', JSON.stringify({ name: role.charAt(0).toUpperCase() + role.slice(1), email: email }));
-        updateNavbar();
-        
-// User Registration (frontend mock)
-document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('registerName').value;
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    const confirmPassword = document.getElementById('registerConfirmPassword').value;
-    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
-    // Simulate API response
-    const userData = { name: name, email: email };
-    localStorage.setItem('role', 'customer');
-    localStorage.setItem('userData', JSON.stringify(userData));
-    updateNavbar();
-    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-    alert('Registration successful!');
-});
-bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-    });
-});
-
-// Logout handler
-document.addEventListener('click', function(e){
-    if(e.target && e.target.id === 'logoutBtn'){
-        localStorage.clear();
-        updateNavbar();
-    
-// User Registration (frontend mock)
-document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('registerName').value;
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    const confirmPassword = document.getElementById('registerConfirmPassword').value;
-    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
-    // Simulate API response
-    const userData = { name: name, email: email };
-    localStorage.setItem('role', 'customer');
-    localStorage.setItem('userData', JSON.stringify(userData));
-    updateNavbar();
-    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-    alert('Registration successful!');
-});
-}
-});
-window.location.href = 'index.html';
-            }
-        });
-
-        // After successful login/signup, call updateNavbar();
-        
-
-// User Registration (frontend mock)
-document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('registerName').value;
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    const confirmPassword = document.getElementById('registerConfirmPassword').value;
-    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
-    // Simulate API response
-    const userData = { name: name, email: email };
-    localStorage.setItem('role', 'customer');
-    localStorage.setItem('userData', JSON.stringify(userData));
-    updateNavbar();
-    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-    alert('Registration successful!');
-});
-// Multi-role login handling
-['user','priest','admin'].forEach(role => {
-    document.getElementById(role + 'LoginForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = document.getElementById(role + 'Email').value;
-        localStorage.setItem('role', role === 'user' ? 'customer' : role);
-        localStorage.setItem('userData', JSON.stringify({ name: role.charAt(0).toUpperCase() + role.slice(1), email: email }));
-        updateNavbar();
-        
-// User Registration (frontend mock)
-document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('registerName').value;
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    const confirmPassword = document.getElementById('registerConfirmPassword').value;
-    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
-    // Simulate API response
-    const userData = { name: name, email: email };
-    localStorage.setItem('role', 'customer');
-    localStorage.setItem('userData', JSON.stringify(userData));
-    updateNavbar();
-    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-    alert('Registration successful!');
-});
-bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-    });
-});
-
-// Logout handler
-document.addEventListener('click', function(e){
-    if(e.target && e.target.id === 'logoutBtn'){
-        localStorage.clear();
-        updateNavbar();
-    
-// User Registration (frontend mock)
-document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('registerName').value;
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    const confirmPassword = document.getElementById('registerConfirmPassword').value;
-    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
-    // Simulate API response
-    const userData = { name: name, email: email };
-    localStorage.setItem('role', 'customer');
-    localStorage.setItem('userData', JSON.stringify(userData));
-    updateNavbar();
-    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-    alert('Registration successful!');
-});
-}
-});
-// (Make sure your login/signup logic calls updateNavbar after setting localStorage)
-
-        // --- Ensure login/signup calls updateNavbar ---
-        // Example for login:
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // ...existing login logic...
-            // On successful login:
-            // localStorage.setItem('role', userRole);
-            // localStorage.setItem('userData', JSON.stringify(userData));
-            updateNavbar();
-            
-
-// User Registration (frontend mock)
-document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('registerName').value;
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    const confirmPassword = document.getElementById('registerConfirmPassword').value;
-    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
-    // Simulate API response
-    const userData = { name: name, email: email };
-    localStorage.setItem('role', 'customer');
-    localStorage.setItem('userData', JSON.stringify(userData));
-    updateNavbar();
-    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-    alert('Registration successful!');
-});
-// Multi-role login handling
-['user','priest','admin'].forEach(role => {
-    document.getElementById(role + 'LoginForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = document.getElementById(role + 'Email').value;
-        localStorage.setItem('role', role === 'user' ? 'customer' : role);
-        localStorage.setItem('userData', JSON.stringify({ name: role.charAt(0).toUpperCase() + role.slice(1), email: email }));
-        updateNavbar();
-
-// Logout handler
-document.addEventListener('click', function(e){
-    if(e.target && e.target.id === 'logoutBtn'){
-        localStorage.clear();
-        updateNavbar();
-    
-}
-});
-// ...existing code (redirect, close modal, etc)...
-        });
-        // Example for signup:
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // ...existing signup logic...
-            // On successful signup:
-            // localStorage.setItem('role', userRole);
-            // localStorage.setItem('userData', JSON.stringify(userData));
-            updateNavbar();
-            
-// User Registration (frontend mock)
-document.getElementById('userRegisterForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('registerName').value;
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    const confirmPassword = document.getElementById('registerConfirmPassword').value;
-    if(password !== confirmPassword) { alert('Passwords do not match'); return; }
-    // Simulate API response
-    const userData = { name: name, email: email };
-    localStorage.setItem('role', 'customer');
-    localStorage.setItem('userData', JSON.stringify(userData));
-    updateNavbar();
-    bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-    alert('Registration successful!');
-});
-bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-    });
-});
-
-// Logout handler
-document.addEventListener('click', function(e){
-    if(e.target && e.target.id === 'logoutBtn'){
-        localStorage.clear();
-        updateNavbar();
-
-}
-});
-// ...existing code (redirect, close modal, etc)...
-        });
-        // Initialize when modal is shown
-        document.getElementById('profileModal').addEventListener('show.bs.modal', loadProfileData);
-    });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>

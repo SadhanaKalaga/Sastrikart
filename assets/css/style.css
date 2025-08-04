@@ -1,0 +1,248 @@
+:root {
+    --primary-color: #ff5722;
+    --secondary-color: #ff9800;
+    --light-bg: #f9f7f1;
+    --dark-text: #333;
+    --light-text: #f9f9f9;
+    --header-bg: rgba(255, 87, 34, 0.9);
+    --card-shadow: 0 2px 5px 0 rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    padding-top: 80px;
+}
+
+.header {
+    background-color: var(--header-bg);
+    height: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    background-color: var(--header-bg);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white !important;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+    padding: 8px 15px !important;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: #ffeb3b !important;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: var(--card-shadow);
+}
+
+.hero {
+    background: url('../assets/images/background.png') no-repeat center center;
+    background-size: cover;
+    min-height: 400px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    padding: 40px 0;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #ffeb3b;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    max-width: 600px;
+    padding: 20px 40px;
+    background-color: rgba(255, 87, 34, 0.7);
+    border-radius: 12px;
+    text-align: right;
+    margin-right: 5vw;
+}
+
+.service-card {
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.price {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    border: none;
+    padding: 8px 15px;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+
+.footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.auth-tabs .nav-link {
+    color: var(--dark-text) !important;
+}
+
+.auth-tabs .nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: bold;
+    background-color: white;
+}
+
+#mainAuthTabs .nav-link {
+    background-color: #f8f9fa;
+    color: #333 !important;
+    font-weight: 500;
+    border: 1px solid #dee2e6;
+    margin-right: 4px;
+}
+
+#mainAuthTabs .nav-link.active {
+    background-color: var(--primary-color);
+    color: white !important;
+}
+
+.about-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content-card {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 40px;
+}
+
+.team-card {
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+    border-top: 5px solid;
+    height: 100%;
+}
+
+.team-card:hover {
+    transform: translateY(-8px) scale(1.03);
+}
+
+.team-img-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ceo-card { border-top-color: #ff5722; }
+.coo-card { border-top-color: #ff9800; }
+.cto-card { border-top-color: #2196F3; }
+.cfo-card { border-top-color: #4CAF50; }
+.mentor1-card { border-top-color: #8e44ad; }
+.mentor2-card { border-top-color: #e74c3c; }
+.mentor3-card { border-top-color: #16a085; }
+
+.feature-card {
+    border: none;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    background-color: #e9ecef;
+    transform: translateY(-3px);
+}
+
+.form-section {
+    background-color: #fff3cd;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 30px auto;
+}
