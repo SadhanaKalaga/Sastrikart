@@ -364,6 +364,16 @@
                 });
             });
 
+            // Fetch Dashboard Stats from API
+            fetch('/api/dashboard-stats')
+                .then(response => response.json())
+                .then(stats => {
+                    document.getElementById('total-users').textContent = stats.totalUsers.toLocaleString();
+                    document.getElementById('total-priests').textContent = stats.totalPriests.toLocaleString();
+                    document.getElementById('total-bookings').textContent = stats.totalBookings.toLocaleString();
+                    document.getElementById('total-revenue').textContent = '₹' + stats.totalRevenue.toLocaleString();
+                });
+
             // Populate Stat Cards
             document.getElementById('total-users').textContent = mockData.totalUsers.toLocaleString();
             document.getElementById('total-priests').textContent = mockData.totalPriests.toLocaleString();
@@ -434,25 +444,94 @@
                 recentBookingsTable.appendChild(row);
             });
 
-            // Users Table
-            const usersTableBody = document.getElementById('users-table-body');
-            function renderUsers() {
-                usersTableBody.innerHTML = '';
-                mockData.users.forEach(user => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${user.id}</td>
-                        <td>${user.name}</td>
-                        <td>${user.email}</td>
-                        <td>
-                            <button class="btn btn-sm btn-warning edit-user-btn" data-id="${user.id}"><i class="fas fa-edit"></i></button>
-                            <button class="btn btn-sm btn-danger delete-user-btn" data-id="${user.id}"><i class="fas fa-trash"></i></button>
-                        </td>
-                    `;
-                    usersTableBody.appendChild(row);
+            // Fetch Users from API
+            fetch('/api/users')
+                .then(response => response.json())
+                .then(users => {
+                    mockData.users = users;
+                    renderUsers();
                 });
-            }
-            renderUsers();
+
+            // Users Table
+            const userForm = document.getElementById('userForm');
+            const userModalLabel = document.getElementById('userModalLabel');
+            const userModal = new bootstrap.Modal(document.getElementById('userModal'));
+
+            document.getElementById('userModal').addEventListener('hidden.bs.modal', function () {
+                userForm.reset();
+                userModalLabel.textContent = 'Add User';
+                document.getElementById('userId').value = '';
+            });
+
+            userForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const userId = document.getElementById('userId').value;
+                const userData = {
+                    name: document.getElementById('userName').value,
+                    email: document.getElementById('userEmail').value,
+                };
+
+                const url = userId ? `/api/users/${userId}` : '/api/users';
+                const method = userId ? 'PUT' : 'POST';
+
+                fetch(url, {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData),
+                })
+                .then(response => response.json())
+                .then(() => {
+                    alert('User saved successfully!');
+                    userModal.hide();
+                    // Refresh the user list
+                    fetch('/api/users').then(response => response.json()).then(users => {
+                        mockData.users = users;
+                        renderUsers();
+                    });
+                });
+            });
+
+            usersTableBody.addEventListener('click', function(e) {
+                const editButton = e.target.closest('.edit-user-btn');
+                const deleteButton = e.target.closest('.delete-user-btn');
+
+                if (editButton) {
+                    const userId = editButton.dataset.id;
+                    const user = mockData.users.find(u => u.id === userId);
+                    if (user) {
+                        userModalLabel.textContent = 'Edit User';
+                        document.getElementById('userId').value = user.id;
+                        document.getElementById('userName').value = user.name;
+                        document.getElementById('userEmail').value = user.email;
+                        userModal.show();
+                    }
+                }
+
+                if (deleteButton) {
+                     if (confirm('Are you sure you want to delete this user?')) {
+                        const userId = deleteButton.dataset.id;
+                        fetch(`/api/users/${userId}`, { method: 'DELETE' })
+                            .then(() => {
+                                alert('User deleted!');
+                                // Refresh the user list
+                                fetch('/api/users').then(response => response.json()).then(users => {
+                                    mockData.users = users;
+                                    renderUsers();
+                                });
+                            });
+                    }
+                }
+            });
+
+            // Fetch Priests from API
+            fetch('/api/priests')
+                .then(response => response.json())
+                .then(priests => {
+                    mockData.priests = priests;
+                    renderPriests();
+                });
 
             // Priests Table
             const priestsTableBody = document.getElementById('priests-table-body');
@@ -473,6 +552,86 @@
                 });
             }
             renderPriests();
+
+            const priestModal = new bootstrap.Modal(document.getElementById('priestModal'));
+            const priestForm = document.getElementById('priestForm');
+            const priestModalLabel = document.getElementById('priestModalLabel');
+
+            document.getElementById('priestModal').addEventListener('hidden.bs.modal', function () {
+                priestForm.reset();
+                priestModalLabel.textContent = 'Add Priest';
+                document.getElementById('priestId').value = '';
+            });
+
+            priestForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const priestId = document.getElementById('priestId').value;
+                const priestData = {
+                    name: document.getElementById('priestName').value,
+                    email: document.getElementById('priestEmail').value,
+                };
+
+                const url = priestId ? `/api/priests/${priestId}` : '/api/priests';
+                const method = priestId ? 'PUT' : 'POST';
+
+                fetch(url, {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(priestData),
+                })
+                .then(response => response.json())
+                .then(() => {
+                    alert('Priest saved successfully!');
+                    priestModal.hide();
+                    // Refresh the priest list
+                    fetch('/api/priests').then(response => response.json()).then(priests => {
+                        mockData.priests = priests;
+                        renderPriests();
+                    });
+                });
+            });
+
+            priestsTableBody.addEventListener('click', function(e) {
+                const editButton = e.target.closest('.edit-priest-btn');
+                const deleteButton = e.target.closest('.delete-priest-btn');
+
+                if (editButton) {
+                    const priestId = editButton.dataset.id;
+                    const priest = mockData.priests.find(p => p.id === priestId);
+                    if (priest) {
+                        priestModalLabel.textContent = 'Edit Priest';
+                        document.getElementById('priestId').value = priest.id;
+                        document.getElementById('priestName').value = priest.name;
+                        document.getElementById('priestEmail').value = priest.email;
+                        priestModal.show();
+                    }
+                }
+
+                if (deleteButton) {
+                     if (confirm('Are you sure you want to delete this priest?')) {
+                        const priestId = deleteButton.dataset.id;
+                        fetch(`/api/priests/${priestId}`, { method: 'DELETE' })
+                            .then(() => {
+                                alert('Priest deleted!');
+                                // Refresh the priest list
+                                fetch('/api/priests').then(response => response.json()).then(priests => {
+                                    mockData.priests = priests;
+                                    renderPriests();
+                                });
+                            });
+                    }
+                }
+            });
+
+            // Fetch Bookings from API
+            fetch('/api/bookings')
+                .then(response => response.json())
+                .then(bookings => {
+                    mockData.recentBookings = bookings;
+                    renderBookings();
+                });
 
             // Bookings Table
             const bookingsTableBody = document.getElementById('bookings-table-body');
