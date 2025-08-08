@@ -452,6 +452,73 @@
     </main>
 
     <div id="modals-placeholder"></div>
+
+    <!-- Auth Modal -->
+    <div class="modal fade" id="authModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Authentication</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <ul class="nav nav-tabs mb-3" id="mainAuthTabs" role="tablist">
+              <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#user-tab" type="button">User</button></li>
+              <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#priest-tab" type="button">Priest</button></li>
+              <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#admin-tab" type="button">Admin</button></li>
+            </ul>
+
+            <div class="tab-content" id="mainAuthTabsContent">
+              <!-- USER TAB with sub-tabs -->
+              <div class="tab-pane show active" id="user-tab">
+                <ul class="nav nav-pills mb-3 auth-tabs" id="userSubTabs" role="tablist">
+                  <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#user-login" type="button">Login</button></li>
+                  <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#user-register" type="button">Register</button></li>
+                </ul>
+                <div class="tab-content">
+                  <!-- User Login -->
+                  <div class="tab-pane show active" id="user-login">
+                    <form id="userLoginForm">
+                      <div class="mb-3"><label>Email</label><input type="email" class="form-control" id="userEmail" required></div>
+                      <div class="mb-3"><label>Password</label><input type="password" class="form-control" id="userPassword" required></div>
+                      <button type="submit" class="btn btn-primary w-100">Login as User</button>
+                    </form>
+                  </div>
+                  <!-- User Register -->
+                  <div class="tab-pane" id="user-register">
+                    <form id="userRegisterForm">
+                      <div class="mb-3"><label>Name</label><input type="text" class="form-control" id="registerName" required></div>
+                      <div class="mb-3"><label>Email</label><input type="email" class="form-control" id="registerEmail" required></div>
+                      <div class="mb-3"><label>Password</label><input type="password" class="form-control" id="registerPassword" required></div>
+                      <div class="mb-3"><label>Confirm Password</label><input type="password" class="form-control" id="registerConfirmPassword" required></div>
+                      <button type="submit" class="btn btn-success w-100">Register</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PRIEST TAB -->
+              <div class="tab-pane" id="priest-tab">
+                <form id="priestLoginForm">
+                  <div class="mb-3"><label>Email</label><input type="email" class="form-control" id="priestEmail" required></div>
+                  <div class="mb-3"><label>Password</label><input type="password" class="form-control" id="priestPassword" required></div>
+                  <button type="submit" class="btn btn-primary w-100">Login as Priest</button>
+                </form>
+              </div>
+
+              <!-- ADMIN TAB -->
+              <div class="tab-pane" id="admin-tab">
+                <form id="adminLoginForm">
+                  <div class="mb-3"><label>Email</label><input type="email" class="form-control" id="adminEmail" required></div>
+                  <div class="mb-3"><label>Password</label><input type="password" class="form-control" id="adminPassword" required></div>
+                  <button type="submit" class="btn btn-danger w-100">Login as Admin</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <footer class="footer">
         <div class="container">
             <div class="row">
